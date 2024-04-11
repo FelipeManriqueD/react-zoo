@@ -1,16 +1,21 @@
+import { Suspense, lazy } from "react";
+
+const AnimalList = lazy(() => import("./components/AnimalList"));
+const Header = lazy(() => import("./components/Header"));
+
 import "./App.css";
-import AnimalList from "./components/AnimalList";
-import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <main>
-        <section>
-          <AnimalList/>
-        </section>
-      </main>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Header />
+        <main>
+          <section>
+            <AnimalList />
+          </section>
+        </main>
+      </Suspense>
       <footer>
         <p>Zoo</p>
       </footer>
