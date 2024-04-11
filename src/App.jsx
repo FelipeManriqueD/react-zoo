@@ -4,6 +4,7 @@ const AnimalList = lazy(() => import("./components/AnimalList"));
 const Header = lazy(() => import("./components/Header"));
 
 import "./App.css";
+import { Box } from "@mui/material";
 
 function App() {
   return (
@@ -11,9 +12,9 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Header />
         <main>
-          <section>
+          <Box component={"section"} sx={{maxWidth: '1200px', margin: '0 auto'}}>
             <AnimalList />
-          </section>
+          </Box>
         </main>
       </Suspense>
       <footer>
